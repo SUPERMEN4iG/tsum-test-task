@@ -1,0 +1,15 @@
+<mat-form-field>
+    <mat-label>Количество детей</mat-label>
+    <button type="button" (click)="decrement()" mat-icon-button matPrefix>
+        <mat-icon>remove</mat-icon>
+    </button>
+    <input matInput
+           [formControl]="formControl.control"
+           [(ngModel)]="value"
+           (change)="onChange($event)"
+           (keyup)="onChange($event)"
+           placeholder="Количество детей">
+    <button type="button" (click)="increment()" mat-icon-button matSuffix>
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-form-field>

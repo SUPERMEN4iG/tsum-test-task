@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label>Дата рождения</mat-label>
+    <input [formControl]="formControl.control"
+           [(ngModel)]="value"
+           (change)="onChange($event)"
+           (keyup)="onChange($event)"
+           placeholder="Дата рождения"
+           matInput [matDatepicker]="myDatepicker">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+    <mat-error *ngIf="formControl.touched && formControl.hasError('required')">
+        дата рождения <strong>обязателена</strong>
+    </mat-error>
+</mat-form-field>

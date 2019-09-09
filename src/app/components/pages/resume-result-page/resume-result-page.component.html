@@ -1,0 +1,6 @@
+<mat-card *ngIf="data">
+    <mat-card-title>{{ data.fio }}, ваше резюме отправлено</mat-card-title>
+    <mat-card-content>
+        <p *ngFor="let prop of resume">{{ prop.key }}: {{ prop.value }}</p>
+    </mat-card-content>
+</mat-card>

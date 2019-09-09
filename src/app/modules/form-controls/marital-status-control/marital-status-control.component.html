@@ -1,0 +1,22 @@
+<mat-form-field>
+    <mat-label>Семейное положение</mat-label>
+    <mat-select [formControl]="formControl.control"
+                [(ngModel)]="value"
+                (change)="onChange($event)"
+                (keyup)="onChange($event)"
+                placeholder="ФИО">
+        <mat-option>Не выбрано</mat-option>
+        <mat-option value="married">
+            <ng-container [ngSwitch]="gender">
+                <ng-container *ngSwitchCase="'0'">Замужем</ng-container>
+                <ng-container *ngSwitchCase="'1'">Женат</ng-container>
+                <ng-container *ngSwitchDefault>Замужем / Женат</ng-container>
+            </ng-container>
+        </mat-option>
+        <mat-option value="divorced">В разводе</mat-option>
+        <mat-option value="no">Нет</mat-option>
+    </mat-select>
+    <mat-error *ngIf="formControl.touched && formControl.hasError('required')">
+        семейное положение <strong>обязателена</strong>
+    </mat-error>
+</mat-form-field>

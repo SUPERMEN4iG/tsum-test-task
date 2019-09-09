@@ -1,0 +1,14 @@
+<mat-label>Пол</mat-label>
+<br>
+<mat-radio-group [formControl]="formControl.control"
+                 [(ngModel)]="value"
+                 (change)="onChange($event)"
+                 color="primary"
+                 aria-label="Выберите пол">
+    <mat-radio-button value="1">М</mat-radio-button>
+    <mat-radio-button value="0">Ж</mat-radio-button>
+</mat-radio-group>
+
+<mat-error *ngIf="formControl.touched && formControl.hasError('required')">
+    пол <strong>обязателен</strong>
+</mat-error>

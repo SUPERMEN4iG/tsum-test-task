@@ -1,0 +1,11 @@
+<mat-form-field>
+    <textarea matInput
+           [formControl]="formControl.control"
+           [(ngModel)]="value"
+           (change)="onChange($event)"
+           (keyup)="onChange($event)"
+           placeholder="Комментарий"></textarea>
+    <mat-error *ngIf="formControl.hasError('cyrillic')">
+        Комментарий должен содержать <strong>только символы кириллицы</strong>
+    </mat-error>
+</mat-form-field>

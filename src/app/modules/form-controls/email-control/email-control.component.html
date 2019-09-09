@@ -1,0 +1,11 @@
+<mat-form-field>
+    <input matInput
+           [formControl]="formControl.control"
+           [(ngModel)]="value"
+           (change)="onChange($event)"
+           (keyup)="onChange($event)"
+           placeholder="Email">
+    <mat-error *ngIf="formControl.hasError('required') || formControl.hasError('email')">
+        Email <strong>обязательно</strong>
+    </mat-error>
+</mat-form-field>

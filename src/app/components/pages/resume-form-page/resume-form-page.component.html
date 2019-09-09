@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-title>Заполните поля в резюме</mat-card-title>
+    <mat-card-content>
+        <form class="resume-form" [formGroup]="form" (ngSubmit)="onFormSubmit()">
+            <div class="resume-form__controls">
+                <app-fio-control class="resume-form-control" formControlName="fio"></app-fio-control>
+
+                <app-gender-control class="resume-form-control resume-form-control_gender" formControlName="gender"></app-gender-control>
+
+                <app-date-birth-control formControlName="dateBirth"></app-date-birth-control>
+
+                <app-marital-status-control *ngIf="isAdult"
+                                            formControlName="maritalStatus"
+                                            [gender]="form.controls.gender.value"
+                                            class="resume-form-control">
+                </app-marital-status-control>
+
+                <app-children-counter-control *ngIf="isAdult"
+                                              formControlName="children"
+                                              class="resume-form-control"></app-children-counter-control>
+
+                <app-email-control class="resume-form-control" formControlName="email"></app-email-control>
+
+                <app-comment-control class="resume-form-control" formControlName="comment"></app-comment-control>
+            </div>
+            <div class="resume-form__send">
+                <button [disabled]="isLocked" type="submit" mat-raised-button color="primary">Отправить</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
