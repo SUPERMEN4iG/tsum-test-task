@@ -1,14 +1,10 @@
-import {Component, ContentChild, forwardRef, Inject, Injector, Input, OnInit, Optional, Self} from '@angular/core';
+import {Component, forwardRef, Inject, Injector, Input, OnInit, Optional} from '@angular/core';
 import {
-    AbstractControl,
-    ControlValueAccessor, FormControl,
+    ControlValueAccessor,
     NG_VALIDATORS,
     NG_VALUE_ACCESSOR,
-    NgControl,
-    ValidationErrors,
-    Validator
+    NgControl
 } from '@angular/forms';
-import {MyErrorStateMatcher} from '../../../helpers/error-state-matcher';
 
 @Component({
     selector: 'app-fio-control',
@@ -25,8 +21,6 @@ import {MyErrorStateMatcher} from '../../../helpers/error-state-matcher';
 export class FioControlComponent implements ControlValueAccessor, OnInit {
     @Input()
     public value = '';
-
-    public matcher = new MyErrorStateMatcher();
 
     public formControl: NgControl;
 

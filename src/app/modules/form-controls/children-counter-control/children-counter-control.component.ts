@@ -1,4 +1,4 @@
-import {Component, forwardRef, Inject, Injector, Input, OnInit, Optional} from '@angular/core';
+import {Component, forwardRef, Inject, Injector, Input, OnInit, Optional, Self} from '@angular/core';
 import {ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 
 @Component({
@@ -23,7 +23,7 @@ export class ChildrenCounterControlComponent implements ControlValueAccessor, On
     public formControl: NgControl;
 
     constructor(private injector: Injector,
-                @Optional() @Inject(NG_VALIDATORS) private validators) {
+                @Optional() @Self() @Inject(NG_VALIDATORS) private validators) {
     }
 
     public ngOnInit(): void {
